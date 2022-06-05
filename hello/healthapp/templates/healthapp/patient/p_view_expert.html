@@ -1,0 +1,35 @@
+{%extends 'healthapp/patient/patient_base.html'%}
+
+{%load static%}
+  
+{%block title%} Health and Fitness|P-view-expert{%endblock%}
+
+
+{%block content%}
+
+<br>
+<br>
+<div class="float-container" style="float: left;">
+{%for row_data in userdata%}
+  <div class="card " style="width:25rem; margin:20px">
+    <img src="/media/{{row_data.user_name.pic_name}}" class="card-img-top" alt="...." style="width:100%; height:300px;">
+    <div class="card-body">
+      <h5 class="card-title"style="color:blue; font-size:30px">{{row_data.user_name.name}}</h5>
+      <p class="card-text"style="color:red; font-size:20px">Experience: {{row_data.experience}}</p>
+      <p class="card-text"style="color:red; font-size:20px">skills: {{row_data.skills}}</p>
+      <p class="card-text"style="color:red; font-size:20px">About: {{row_data.about}}</p>
+      <p class="card-text"style="color:red; font-size:20px">Qualification: {{row_data.qualification}}</p>
+      <a href="/booking_request/{{row_data.user_name.user_name}}" class="btn btn-primary">Booking Request</a>
+      <a href="/Feedback/{{row_data.user_name.user_name}}" class="btn btn-danger">Feedback</a>
+    </div>
+  </div>
+</div>
+{%endfor %}
+
+{% endblock %}
+
+{%block script2%}
+if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+}
+{%endblock %}

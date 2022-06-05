@@ -1,0 +1,98 @@
+
+<style>
+  /* {% comment %} body{          background-image: url("static/healthapp/images/a.jpg");
+       background-repeat: no-repeat;
+       background-fixed:fixed;}
+   {% endcomment %} */
+  .nav-link {
+    color:rgb(253, 207, 0)!important;
+    font: size 40px;
+  }
+  body {
+ margin-top:100px;
+ font-size: 1rem;
+ font-weight: 400;
+ line-height: 1.5;
+ color: #08090a;
+ text-align: left;
+ /* background-color: rgba(250, 249, 243, 0.897) */
+}
+
+#navcol-1 {
+ font-size: 20px
+}
+
+@media (max-width: 750px) {
+ .navbar-dark .navbar-nav .nav-link {
+     float: right
+ }
+}
+
+
+
+</style>
+
+
+<nav class="navbar navbar-dark navbar-expand-md fixed-top bg-transparent">
+ <div class="container-fluid"><a class="navbar-brand" href="#"><span style="font: size 3px;font-family:Algerian;color:rgb(134, 3, 42);"><h3>Health and Fitness</h3></span> </a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+     <div class="collapse navbar-collapse" id="navcol-1">     
+    <a class="navbar-brand" href="#"><i class="fas fa-heartbeat fa-2x" style="color: rgb(160, 4, 4);"></i> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{'/'}}">Home</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/contactus/">contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/Aboutus/">About us</a>
+        </li>
+        
+        
+        <li class="nav-item">
+          <a class="nav-link View Expert" href="/View_Expert/">View Expert</a>
+        </li>
+       
+        <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Login 
+         </a>
+         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <li><a class="dropdown-item" href="/login_patient/">Patient</a></li>
+           <li><a class="dropdown-item" href="/login_expert/">Expert</a></li>
+         </ul>
+         <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             Registration 
+           </a>
+           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+             <li><a class="dropdown-item" href="/Registration_patient/">Patient</a></li>
+             <li><a class="dropdown-item" href="/Registration_expert/">Expert</a></li>
+           </ul>
+           <li class="nav-item">
+            <a class="nav-link" href="#accordion">FAQ</a>
+          </li><li class="nav-item">
+            <a class="nav-link" href="/health/">Health Check</a>
+          </li>
+      </ul>
+      
+       <div class="dropdown" style="margin-right: 20px;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false ">
+          search
+       </a>
+       <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-right:-150px;">
+         <li><a class="dropdown-item" href="/search/Yoga Expert">Yoga Experts</a></li>
+         <li><a class="dropdown-item" href="/search/Nurse">Nurse</a></li>
+         <li><a class="dropdown-item" href="/search/Physiotherapists">Physiotherapists</a></li>
+         <li><a class="dropdown-item" href="/search/dietician">dietician</a></li>
+         <!-- <li><a class="dropdown-item" href="/search/Counseller">Counseller</a></li> -->
+       </ul>
+     
+     </div>
+    </div>
+  </div>
+</nav>

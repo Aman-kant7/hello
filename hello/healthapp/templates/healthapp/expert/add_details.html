@@ -1,0 +1,90 @@
+{%extends 'healthapp/expert/expert_base.html'%}
+
+{%load static%}
+
+{%block title%} Health and Fitness|Add_Details{%endblock%}
+
+
+
+{%block content%}
+
+{% if messages %}
+
+  {%for m in messages%}
+
+  {% comment %} <h3 class="text-{{m.tags}}"> {{m}}</h3> {% endcomment %}
+  <div class="row justify-content-center">
+   <div class="col-4" >
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>{{m}}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+   </div>
+  </div>
+
+
+
+
+  {% endfor %}
+
+{% endif %}
+<div style ="margin-top:100px;">
+     
+
+<div class="row" style="margin-top:100px">
+     <div class="container"> <div class=" text-center mt-5 ">
+     </b><center><span style="font-size:30px;font-family:Algerian;color:rgb(91, 255, 99);">ADD EXPERT DETAILS<i class="fas fa-clinic-medical"></i></span></center>
+     </div>
+     <form form class="mx-1 mx-md-4 needs-validation" novalidation  method="POST" action="/add_details/">
+         {%csrf_token%}
+     <div class="row ">
+         <div class="col-lg-7 mx-auto">
+             <div class="card mt-2 mx-auto p-4 bg-transparent">
+                 <div class="card-body bg-transparent">
+                     <div class="container">
+                         <form id="contact-form" role="form">
+                             <div class="controls">
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group"> <label for="form_name">USERNAME*</label> <input id="form_name" type="txtusername" name="txtusername" class="form-control" placeholder="Please enter your username *" required="required" data-error="Firstname is required.
+                                            " value="{{userdata.user_name}}"> </div>
+                                     </div>
+                                     <div class="col-md-6">
+                                         <div class="form-group"> <label for="form_lastname">EXPERIENCE*</label> <input id="form_lastname" type="txtexperience" name="txtexperience" class="form-control" placeholder="Please enter your experience*" required="required" data-error="Lastname is required."> </div>
+                                     </div>
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <div class="form-group"> <label for="form_lastname">SKILL*</label> <input id="form_lastname" type="txtskill" name="txtskill" class="form-control" placeholder="Please enter your SKILL *" required="required" data-error="Lastname is required."> </div>
+                                     </div>
+                                     
+                                 </div>
+                                 <div class="row">
+                                     <div class="col-md-12">
+                                         <div class="form-group"> <label for="form_message">ABOUT EXPERT*</label> <textarea id="form_message" name="txtabout" class="form-control" placeholder="Write about your details" rows="4" required="required" data-error="Please, leave us a message."></textarea> </div>
+                                     </div>
+                                     <div class="row">
+                                         <div class="col-md-6">
+                                             <div class="form-group"> <label for="form_lastname">HIGHEST QUALIFICATION*</label> <input id="form_lastname" type="txtqualification" name="txtqualification" class="form-control" placeholder=" QUALIFICATION*" required="required" data-error="Lastname is required."> </div>
+                                         </div>
+                                         <br>
+                                         <br>
+                                         <br>
+                                     <div class="col-md-12"> <input type="submit" class="btn btn-success btn-send pt-2 btn-block w-75" value="Submit Detail"> </div>
+                                 </div>
+                             </div>
+                         </form>
+                     </div>
+                 </div>
+             </div> <!-- /.8 -->
+         </div> <!-- /.row-->
+     </form>
+     </div>
+ </div>
+ </div>
+
+
+
+
+
+{%endblock%}

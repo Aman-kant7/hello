@@ -1,0 +1,62 @@
+{%extends 'healthapp/expert/expert_base.html'%}
+
+{%load static%}
+
+
+{%block title%} Health and Fitness|Tips{%endblock%}
+
+
+{%block content%}
+<!-- {% if messages %}
+
+     {%for m in messages%}
+
+    <!-- <h3 class="text-{{m.tags}}"> {{m}}</h3>  -->
+     <div class="row justify-content-center mt-5">
+      <div class="col-4" >
+         <div class="alert alert-danger alert-dismissible fade show" role="alert">
+         <strong>{{m}}</strong> 
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+      </div>
+     </div>
+
+
+
+
+     {% endfor %}
+
+{% endif %} -->
+<div style ="margin-top:100px;">
+     <div class="card bg-transparent">
+     <form class="form-card needs-validation"  class="needs-validation" novalidate name="reg_form" action="/Tips/" method="POST">
+
+              
+        {% csrf_token %}
+        <div class="row justify-content-between text-left">
+            <div class="row justify-content-between text-left">
+
+               <div class="form-group col-12 flex-column d-flex w-100">
+                    <label class="form-control-label px-3">Tips Content :<span class="text-danger"> *</span></label>
+                    <textarea  name="txtcontent"  onblur="validate(1)" required="required"></textarea>
+                    <div class="invalid-feedback">
+                       Please enter Tips Content
+                    </div>
+               </div> 
+                     
+               <div class="row justify-content-end">
+                    <div class="form-group col-sm-6 mt-3"> 
+                             <button type="submit" name = "submit" value = "submit" class="btn-block btn-success ">Submit</button>
+                         </div>
+               </div>  
+               <br>
+               <br>
+               <br>
+
+          </div> 
+          </div>   
+     </form>
+</div>
+</div>   
+
+{% endblock %}

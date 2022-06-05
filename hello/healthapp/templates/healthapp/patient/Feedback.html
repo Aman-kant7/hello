@@ -1,0 +1,81 @@
+{%extends 'healthapp/patient/patient_base.html'%}
+
+{%load static%}
+  
+{%block title%} Health and Fitness|Feedback{%endblock%}
+
+{%block content%}
+
+{% if messages %}
+
+{%for m in messages%}
+
+{% comment %} <h3 class="text-{{m.tags}}"> {{m}}</h3> {% endcomment %}
+<div class="row justify-content-center mt-5">
+ <div class="col-4" >
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{m}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+ </div>
+</div>
+
+
+{% endfor %}
+{%endif%}
+
+
+<div class="container" style="margin-top:80px">
+    <center><span style="font-size:30px;font-family:Algerian;color:red;"><h1> Feedback</h1></span></center>
+<center>
+    <form class="form-card needs-validation"  class="needs-validation" novalidate name="reg_form" action="/Final_Feedback/" method="POST">
+        {% csrf_token %}
+
+    <div class="card w-75 " style="width: 18rem; margin:50px">
+        <div>
+            <input type="hidden" value="{{exp_name}}" name="txtexpert_id">
+        </div>
+        <br>
+        <div class="form-group col-12 flex-column d-flex ">
+            <label class="feedback">Feedback :<span class="text-danger"> *</span></label>
+           <textarea  name="txtfeedback"  onblur="validate(1)" id="feedback" required="required"></textarea>
+           <div class="invalid-feedback">
+               Please enter Feedback
+            </div>
+        </div>
+        <center>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Feedback Rating</label>
+            <select id="inputState" class="form-select" name="txtrating">
+              <option selected>Rating</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </center>
+        <div class="row justify-content-end">
+            <div class="form-group col-sm-12 mt-3"> 
+                <button type="submit" name = "submit" value = "submit" class="btn-block btn-success "><a herf="Final_Feedback"></a>Update</button>
+                </div>
+        </div>
+
+    
+    
+    </div>
+</form>
+</center>
+</div> 
+
+
+
+
+{%endblock%}
+
+{%block script2%}
+if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+}
+{%endblock %}

@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/css/dist/mdb5/standard/core.min.css">
+    <link rel="icon" href="{%static 'healthapp/images/icon1.jpg'%}" type="image/jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+   
+
+    <style>
+        
+        body{
+        background:url("https://wallpaperbat.com/img/303029-hd-medical-wallpaper.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        }
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }.card{
+          background-image: url("https://c1.wallpaperflare.com/preview/937/818/491/stethoscope-doctor-md-medical-health-hospital.jpg")
+      }
+  </style>
+    
+</head>
+<body>
+
+    
+  
+  {% include 'healthapp/html/header.html' %}
+
+{% if messages %}
+  {%for m in messages%}
+  <h3 class="text-{{m.tags}}"> {{m}}</h3> 
+  <div class="row justify-content-center">
+   <div class="col-4" >
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>{{m}}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+   </div>
+  </div>
+  {% endfor %}
+{% endif %}
+
+<div class="container-fluid " >
+  <div class="row cmargin">
+    <div class="col-6 mt-6 ">
+        <center>
+          <BR><BR>
+          <h3 style="color:rgb(0, 0, 0)"> <strong>“No matter how much it gets abused, the body can restore balance. The first rule is to stop interfering with nature.”</strong></h3><H2 ><strong><code>“ake care of your body. It’s the only place you have to live in.”</strong> </code></H2>. 
+          <h3 style="color: rgb(0, 0, 0);"><strong>
+            “The human body is the best picture of the human soul.”
+          </strong></h3>
+        </center>
+
+    </div>
+
+    <div class="col-6 mt-5">
+    
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner center">
+        <div class="carousel-item active" style="height:400px;">
+          <img src="static/healthapp/images/health1.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item center">
+          <img src="static/healthapp/images/health2.jpg " class="d-block w-100" alt="..." style="height:400px">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item center">
+          <img src="static/healthapp/images/doctor.jpg" class="d-block w-100" alt="..." style="height:400px">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+</div>
+  
+ 
+
+
+
+<div class="container-fluid ">
+  <marquee behavior="scroll" direction="left" scrollamount="10">
+    <h3 class="m10">
+{%for obj in tips%}
+<ul style="list-style-type: none;display:inline;color: rgb(1, 15, 27);">
+  <li style="display: inline">
+ {{obj.tips_content}}
+  </li>
+</ul>
+{%endfor%}
+</h3>
+</marquee>
+</div>
+
+  <!-- {% comment %} <marquee>yoga for healthy life . </marquee>
+  <marquee>Running is health for happy. </marquee>
+  <marquee>This text will scroll across the screen. </marquee> {% endcomment %} -->
+
+
+
+ <!-- {% comment %} data from view   {% endcomment %}
+  {% comment %} <h1>{{info}}</h1> {% endcomment %} -->
+
+
+<div class="row">
+  {% for obj in info %}
+
+
+<!-- {% comment %} <p>{{obj.description}} </p> {% endcomment %} -->
+<div class="col-3">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <img src="media/{{obj.pic_name}}" alt="" class"card-img-top" style="width:100%;height:100%;">
+    <h5 class="card-title">{{obj.organizer_name}}</h5>
+    {% comment %} <h6 class="card-subtitle mb-2 text-muted">{{obj.campaig_id}}</h6> {% endcomment %}
+    <p class="card-text">{{obj.description}}</p>
+    <p class="card-text">{{obj.date}}</p>
+    
+     {% comment %} <a href="#" class="card-link">Card link</a> 
+    <a href="#" class="card-link">Another link</a>  {% endcomment %}
+  </div>
+</div>
+</div>
+  {% endfor %}
+<br>
+<br>
+  <div class="accordion" id="accordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <strong> What is a healthy body?</strong>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          A healthy body is maintained by good <code>nutrition, regular exercise, avoiding harmful habits, making informed and responsible decisions about health, and seeking medical assistance when necessary.</code>
+          <storng>Being healthy should be part of your overall lifestyle. Living a healthy lifestyle can help prevent chronic diseases and long-term illnesses. Feeling good about yourself and taking care of your health are important for your self-esteem and self-image</storng>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         <strong> What are the four concepts of health?</strong>
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          Four distinct conceptions of health emerged from responses to the <strong></strong>"how do you know" question</strong> <code>physical, psychosocial, capacity, and control</code>. While prevalence varied with survey year as well as respondent age and education, these four concepts were evident in both 1995 and 2002
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         <strong> What is healthy life?</strong>
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          A healthy lifestyle is<code >a way of living that lowers the risk of being. seriously ill or dying early</code>. Not all diseases are preventable, but a large. proportion of deaths, particularly those from coronary heart disease. and lung cancer, can be avoided.
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+
+  {% include 'healthapp/html/footer.html' %}
+  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+ 
+</body>
+</html>

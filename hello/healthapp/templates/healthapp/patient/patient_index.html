@@ -1,0 +1,45 @@
+{%extends 'healthapp/patient/patient_base.html'%}
+
+{%load static%}
+
+{%block title%} Health and Fitness|patient_Index{%endblock%}
+
+{% block content %}
+
+{%if msg%}
+<form method="post" action="/delete_message/" style="margin-top: 80px;">
+     {%csrf_token %}
+<table class="table">
+     <thead>
+       <tr style="color:aliceblue;">
+         <th scope="col">Select</th>
+         <th scope="col">Sender</th>
+         <th scope="col">Subject</th>
+         <th scope="col">Date</th>
+       </tr>
+     </thead>
+
+{%for row_data in msg %}
+<tr style="color:rgb(247, 189, 1)">
+     <th scope="row"><input type="checkbox" name="chk" id="chk" value={{row_data.id}}></th>
+     <td>{{row_data.sender_id}}</td>
+
+     <td><a href={{row_data.get_absolute_url}}>{{row_data.subject}}</a></td>
+     <td>{{row_data.date}}</td>
+</tr>
+
+
+
+{%endfor%}
+<tr> <td colspan="4"><button type="submit" class="btn btn-primary">Delete</button></td></tr>
+</tbody> 
+
+
+<tbody>
+</table>
+</form>
+{%endif%}
+{% endblock %}
+
+
+

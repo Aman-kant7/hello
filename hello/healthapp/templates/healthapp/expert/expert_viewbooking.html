@@ -1,0 +1,54 @@
+{%extends 'healthapp/expert/expert_base.html'%}
+
+{%load static%}
+
+{%block title%} Health and Fitness|Expert_view_Booking{%endblock%}
+
+{%block content%}
+
+{%if expert_user%}
+<form method="post" action="/expert_viewbooking/" style="margin-top:80px;">
+     {%csrf_token %}
+<table class="table">
+     <thead>
+       <tr style="color:aliceblue">
+         <th scope="col">UserName</th>
+         <th scope="col">FromDate</th>
+         <th scope="col">ToDate</th>
+         <th scope="col">Message</th>
+       </tr>
+     </thead>
+
+
+     {%for row_data in expert_user %}
+     <tr style="color:aliceblue">
+          <td>{{row_data.user_name.user_name}}</td>
+          <td>{{row_data.from_Date}}</td>
+          <td>{{row_data.to_Date}}</td>
+          <td>{{row_data.user_message_text}}</td>
+          
+          {%if  'confirm' in row_data.status %}
+              
+          <td colspan="4"><a href="/confirm_booking/{{row_data.id}}" class="btn btn-secondary disabled" >confirm</a>
+               <a href="#" class="btn btn-secondary disabled">cancel</a></td></tr>
+
+          {% elif  'cancel' in row_data.status%}
+               <td colspan="4"><a href="/confirm_booking/{{row_data.id}}" class="btn btn-danger disabled">confirm</a>
+               <a href="/cancel_booking/{{row_data.id}}"  class="btn btn-danger disabled">cancel</a></td></tr>
+    
+
+          {%else%}
+               <td colspan="4"><a href="/confirm_booking/{{row_data.id}}" class="btn btn-primary">confirm</a>
+               <a href="/cancel_booking/{{row_data.id}}"  class="btn btn-primary">cancel</a></td></tr>
+          {%endif%}
+     {%endfor%}
+     
+     
+</tbody>  
+     </table>
+     </form>
+     {%endif%}
+     {% endblock %}
+     
+     
+     

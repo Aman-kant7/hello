@@ -1,0 +1,96 @@
+{%extends 'healthapp/patient/patient_base.html'%}
+
+{%load static%}
+  
+{%block title%} Health and Fitness|Compose_massege{%endblock%}
+
+{% block style%} 
+body{
+    background:url("https://wallpaperaccess.com/full/136920.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    }
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card{
+      background-image: url("https://wallpaperaccess.com/full/136934.jpg")
+  }
+{%endblock%}
+{%block content%}
+
+
+<BR>
+    <BR>
+{% if messages %}
+
+  {%for m in messages%}
+
+  {% comment %} <h3 class="text-{{m.tags}}"> {{m}}</h3> {% endcomment %}
+  <div class="row justify-content-center">
+   <div class="col-4" >
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>{{m}}</strong> 
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+   </div>
+  </div>
+
+
+
+
+  {% endfor %}
+
+{% endif %}
+    <div style ="margin-top:100px;">
+    <div class="card ">
+    <form class="form-card needs-validation"  class="needs-validation" novalidate name="reg_form" action="/compose_message/" method="POST">
+            
+        {% csrf_token %}
+        <div class="row justify-content-between text-left">
+            <div class="row justify-content-between text-left">
+              
+            <div class="form-group col-12 flex-column d-flex w-50"> 
+                <label class="form-control-label px-3">Receiver Id:<span class="text-danger"> *</span></label> 
+                <input type="txtreceiverid" id="email" name="txtreceiverid"  onblur="validate(3)" required="required">
+                <div class="invalid-feedback">
+                    Please enter receicer id
+                  </div>
+            </div>
+            <div class="form-group col-12 flex-column d-flex w-50"> 
+                <label class="form-control-label px-3">Subject:<span class="text-danger"> *</span></label> 
+                <input type="txtmessage" id="phonenumber" name="txtmessage"  onblur="validate(4)" required="required"> 
+                <div class="invalid-feedback">
+                    please enter subject of message
+                  </div>
+            </div>
+
+            <div class="form-group col-12 flex-column d-flex w-50">
+                <label class="form-control-label px-3">Content :<span class="text-danger"> *</span></label>
+               <textarea  name="txtcontent"  onblur="validate(1)" required="required"></textarea>
+               <div class="invalid-feedback">
+                   Please enter Content
+                 </div>
+                 </div>
+
+       
+        <div class="row justify-content-end">
+            <div class="form-group col-sm-6 mt-3"> 
+                <button type="submit" name = "submit" value = "submit" class="btn-block btn-success ">Update</button>
+                </div>
+        </div>
+    </form>
+</div>
+</div>
+<br>
+<br>
+{% endblock %}
+
+{%block script2%}
+if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+}
+{%endblock %}

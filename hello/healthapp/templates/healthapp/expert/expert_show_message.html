@@ -1,0 +1,21 @@
+{%extends 'healthapp/expert/expert_base.html'%}
+{%load static%}
+
+{%block title%} Health and Fitness|Expert-Show_Message{%endblock%}
+
+{% block content %}
+<div style ="margin-top:100px;color:aliceblue">
+<div class="card ">     
+
+<p>
+     content: start health check
+     {{msg.context}}
+</p>     
+</div>
+</div>
+{% endblock %}
+{%block script2%}
+if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+}
+{%endblock %}

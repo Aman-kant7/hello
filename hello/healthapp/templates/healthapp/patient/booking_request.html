@@ -1,0 +1,74 @@
+{%extends 'healthapp/patient/patient_base.html'%}
+
+{%load static%}
+  
+{%block title%} Health and Fitness|Booking_Request{%endblock%}
+
+
+{%block content%}
+{% if messages %}
+
+{%for m in messages%}
+
+{% comment %} <h3 class="text-{{m.tags}}"> {{m}}</h3> {% endcomment %}
+<div class="row justify-content-center mt-5">
+ <div class="col-4" >
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{m}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+ </div>
+</div>
+
+
+{% endfor %}
+
+{% endif %}
+<div class="container" style="margin-top:80px">
+<center><span style="font-size:30px;font-family:Algerian;color:red;"><h1> Booking Request</h1></span></center>
+<div class="card  ">
+             
+    <div class="p-4">
+        <form  method="post" action="/final_booking_request/" class="needs-validation" novalidate>
+           {% csrf_token %}
+           <div>
+            <input type="hidden" value="{{e_id}}" name="txtexpert_id">
+        </div>
+        <br>
+            <div><label class="date">From date:</label>
+                <input type="date" class="datepicker" data-date-forma="mm/dd/yyyy" name="fromdate" required>
+            </div>
+            <br>
+            <div><label class="date">To date:  </label>
+                <input type="date" class="datepicker" data-date-forma="mm/dd/yyyy" name="todate" required>
+            </div>
+
+        
+
+        <div class="form-group col-12 flex-column d-flex w-100 ">
+            <label class="feedback">user_message_text :<span class="text-danger"> *</span></label>
+           <textarea  name="txtmessage"  onblur="validate(1)" id="feedback" required="required"></textarea>
+           <div class="invalid-feedback">
+               Please enter textarea
+            </div>
+        </div>
+        <div class="row justify-content-end">
+            <div class="form-group col-sm-6 mt-3"> 
+                <button type="submit" name = "submit" value = "submit"class="btn-block btn-success ">
+                    <a href="final_booking_request"></a> Booking Request</button>
+                </div>
+        </div>
+        </form>
+    </div>
+</div> 
+</div>      
+<br>
+<br>
+
+{%endblock%}
+
+{%block script2%}
+if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+}
+{%endblock %}
